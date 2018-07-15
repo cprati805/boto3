@@ -17,7 +17,7 @@ for region in regions:
     # Connect to region
     ec2 = boto3.client('ec2', region_name=reg)
 
-    # Get all 'in-use' volumes
+    # Get all 'available' volumes
     volumes = ec2.describe_volumes( Filters=[{'Name': 'status', 'Values': ['available']}])
     
     if volumes['Volumes'] == []:
